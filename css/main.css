@@ -1,0 +1,56 @@
+.container {
+    width:90%;
+}
+
+.block  {
+    box-shadow: 5px 4px 10px grey;
+    border-radius: 7px;
+    background: lightgray;
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom:10px;
+    color:white;
+}
+
+section{
+    margin-top:15px;
+    margin-bottom:15px;
+    color:lightgrey;
+    text-align: justify;
+}
+
+
+
+h1{
+    padding-left: 20%;
+    padding-bottom:15px;
+    color:lime;
+    text-shadow: lightgray;
+}
+
+label{
+    color:lightgrey;
+}
+
+img {
+    width:100%;
+    height:auto;
+}
+
+body{
+    background-image: url("../img/wallpaper1.jpg");
+    height: auto;
+    width:auto;
+
+}
+
+.head{
+    background-image: url("../img/2016-ninja.jpg");
+}
+.footer{
+    background-color: lime;
+    height:60px;   /* Height of the footer */
+    margin-top:5%;
+}
+
+
