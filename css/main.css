@@ -1,14 +1,14 @@
 .container {
-    width:90%;
+    margin:5px;
+
 }
 
 .block  {
-    box-shadow: 5px 4px 10px grey;
+    box-shadow: 5px 4px 10px green;
     border-radius: 7px;
-    background: lightgray;
+    background: black;
     padding: 15px;
-    margin-top: 10px;
-    margin-bottom:10px;
+    margin: 10px;
     color:white;
 }
 
@@ -24,7 +24,7 @@ section{
 h1{
     padding-left: 20%;
     padding-bottom:15px;
-    color:lime;
+    color:green;
     text-shadow: lightgray;
 }
 
@@ -39,18 +39,52 @@ img {
 
 body{
     background-image: url("../img/wallpaper1.jpg");
-    height: auto;
-    width:auto;
+    background-attachment: fixed;
+
 
 }
 
 .head{
-    background-image: url("../img/2016-ninja.jpg");
+    background-image: url("../img/ninja.jpg") ;
+    background-position: center;
+    background-size: cover;
+    margin-bottom:20px;
+    height:150px;
+
+
 }
 .footer{
-    background-color: lime;
-    height:60px;   /* Height of the footer */
-    margin-top:5%;
+    max-height:100px;   /* Height of the footer */
+    padding:10px;
+    margin-top:10px;
 }
 
+footer img{
+    width : 30px;
+}
+
+ .box {
+     height:200px;
+     width:200px;
+     display:inline-block;
+     border: 2px solid black;
+ }
+
+ .range {
+     max-width:100px;
+
+ }
+
+article{
+    color:lightgray;
+
+}
+
+nav li{
+    padding-right:10px;
+}
+.mediaButtons{
+    margin:5px;
+    color:lightgrey;
+}
 
