@@ -1,0 +1,156 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Video</title>
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script language="JavaScript">
+
+        function playPause() {
+            var player = document.getElementById('video');
+            if (player.paused) {
+                player.play();
+                document.getElementById("playButton").className='glyphicon glyphicon-pause';
+           } else {
+                player.pause();
+                document.getElementById("playButton").className='glyphicon glyphicon-play';
+
+            }
+        }
+
+        function stop() {
+            var player = document.getElementById('video');
+            player.currentTime = 0;
+            player.pause();
+        }
+
+        function mute() {
+            var player = document.getElementById('video');
+            if (player.muted) {
+                player.muted = false;
+                document.getElementById("muteButton").className='glyphicon glyphicon-volume-up';
+            } else {
+                player.muted = true;
+                document.getElementById("muteButton").className='glyphicon glyphicon-volume-off';
+            }
+        }
+
+        function volChange() {
+            var player = document.getElementById('video');
+            player.volume = document.getElementById("volLevel").value / 100;
+            console.log("Volume", player.volume);
+        }
+        function rateChange() {
+            var player = document.getElementById('video');
+            player.playbackRate = document.getElementById("rateSpeed").value / 100;
+            console.log("rateSpeed", player.playbackRate);
+        }
+
+
+        function fullScreen() {
+            var player = document.getElementById('video');
+            if (video.requestFullscreen) {
+                player.requestFullscreen();
+            } else if (video.mozRequestFullScreen) {
+                player.mozRequestFullScreen();
+            } else if (video.webkitRequestFullScreen) {
+                player.webkitRequestFullScreen();
+            } else if (video.msRequestFullScreen) {
+                player.msRequestFullScreen();
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <div class="row block head">
+        <header><h1>Home Page</h1></header>
+    </div>
+
+
+    <div class="row block">
+        <nav >
+            <ul class="nav nav-pills">
+                <li><a href="index.html" class="btn btn-sm" >Index</a></li>
+                <li><a href="login.html" class="btn btn-sm">Log in</a></li>
+                <li><a href="logupVal.html" class="btn btn-sm">Log up</a></li>
+                <li class="active"><a href="video.html" class="btn btn-sm">Video</a></li>
+                <li><a href="squares.html" class="btn btn-sm">Squares</a></li>
+            </ul>
+        </nav>
+
+    </div>
+    <div class="row ">
+        <video class="col-xs-12" id="video" poster="img/poster.png"  >
+            <source src="video/dummy.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="row mediaButtons">
+        <div class="col-md-3 mediaButtons">
+            <button class="btn-default" onclick="playPause()"><span id="playButton" class="glyphicon glyphicon-play"></span></button>
+            <!-- <button class="btn-default" onclick="pause()">Pause</button>-->
+            <button class="btn-default" onclick="stop()"><span class="glyphicon glyphicon-stop"></span></button>
+            <button class="btn-default" onclick="mute()"><span id="muteButton" class="glyphicon glyphicon-volume-up"></span></button>
+            <button class="btn-default" onclick="fullScreen()"><span id="fullScreen" class="glyphicon glyphicon-resize-full"></span></button>
+        </div>
+        <div class="col-xs-4 col-md-2 mediaButtons">
+
+            <input type="range" id="volLevel" class="range" min="0" max="100" onchange="volChange()" value="50"/>
+            <span id="iconVol" class="glyphicon glyphicon-volume-up"></span>
+
+        </div>
+        <div class="col-xs-4 col-md-2 mediaButtons">
+            <input type="range" id="rateSpeed" class="range" min="0" max="800" onchange="rateChange()" value="10"/>
+            <span id="iconRate" class="glyphicon glyphicon-forward"></span>
+        </div>
+
+
+    </div>
+    <div class="row ">
+        <div class="block footer">
+            <footer>
+                <div class="col-sm-5">
+                    <p>Daniel García Mercadal 2015</p>
+                </div>
+                <div>
+                    <a href="http://www.facebook.com" class="btn ">
+                        <img src="img/facebook.svg" alt="facebook logo"/>
+                    </a>
+                    <a href="" class="btn">
+                        <img src="img/twitter.svg" alt="twitter logo"/>
+                    </a>
+                    <a href="" class="btn">
+                        <img src="img/linkedin.svg" alt="linkedin logo"/>
+                    </a>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+
+
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+
+</body>
+</html>

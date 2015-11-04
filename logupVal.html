@@ -1,0 +1,186 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Log up page</title>
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script language="JavaScript">
+
+        var getValueById = function (elemID) {
+            return document.getElementById(elemID).value;
+        };
+
+        function colorChange(id) {
+
+            if (doCheck(id)) {
+                (document.getElementById(id)).style.borderColor = '#00FF00';
+                console.log("bien");
+            } else {
+                (document.getElementById(id)).style.borderColor = '#FFAAA3';
+                console.log("mal");
+            }
+        }
+
+        function doValidate() {
+            if (doCheck("fullName") && doCheck("notes") && doCheck("salary")) {
+                console.log("doValidate true");
+                return true;
+            } else {
+                console.log("doValidate false");
+                alert("Correct the fields in red.");
+                return false;
+            }
+        }
+
+        function doCheck(id) {
+            switch (id) {
+                case "fullName":
+                    if (getValueById(id).length >= 7 && getValueById(id).length <= 50) {
+                        console.log("Name ok.");
+                        return true;
+                    }
+                    break;
+                case "notes":
+                    if (getValueById(id).length <= 5 && getValueById(id).length > 0) {
+                        console.log("Notes ok.");
+                        return true;
+                    }
+                    break;
+                case "salary":
+                    if (getValueById(id) >= 20000 && getValueById(id) <= 200000 && ((getValueById(id) - 500) % 500) == 0) {
+                        console.log("Salary ok");
+                        return true;
+                    }
+                    break;
+                default:
+                    console.log("Wrong id");
+                    return false;
+            }
+        }
+    </script>
+</head>
+<body>
+
+
+<div class="container">
+    <div class="row">
+        <div class="block head ">
+            <header><h1>Logup Page</h1></header>
+        </div>
+    </div>
+    <div class="row block">
+        <nav>
+
+            <ul class="nav nav-pills">
+                <li><a href="index.html" class="btn btn-sm">Index</a></li>
+                <li><a href="login.html" class="btn btn-sm">Log in</a></li>
+                <li class="active"><a href="logupVal.html" class="btn btn-sm">Log up</a></li>
+                <li><a href="video.html" class="btn btn-sm">Video</a></li>
+                <li><a href="squares.html" class="btn btn-sm">Squares</a></li>
+            </ul>
+
+        </nav>
+
+    </div>
+
+    <form class="form-horizontal" action="login.html" onSubmit="return doValidate();">
+        <div class="form-group">
+            <label for="fullName" class="col-sm-4 control-label hidden-xs ">Full Name</label>
+
+            <div class="col-sm-4 ">
+                <input type="text" class="form-control center" name="fullName" id="fullName" placeholder="Full Name"
+                       autofocus="" onblur="colorChange('fullName')" onchange="colorChange('fullName')"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-offset-1 col-sm-offset-5 radio">
+                <label class="radio-inline"><input type="radio" name="gender" id="male"
+                                                   value="male"><b>Male</b></label>
+                <label class="radio-inline"><input type="radio" name="gender" id="female"
+                                                   value="female"><b>Female</b></label>
+            </div>
+        </div>
+        <div class="form-group">
+
+            <div class="col-xs-offset-1 col-sm-offset-5 checkbox">
+                <label><input type="checkbox" class="center" id="subscribe"
+                              name="subscribe"/><b>Subscribe</b></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="notes" class="col-sm-4 control-label hidden-xs">Notes</label>
+
+            <div class="col-sm-4">
+                <textarea class="form-control center" id="notes" name="notes" rows="5" cols="30" maxlength="500"
+                          placeholder="Put your notes here" onchange="return colorChange('notes')"
+                          onblur="colorChange('notes')"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="birthDate" class="col-sm-4 control-label hidden-xs">Date of Birth</label>
+
+            <div class="col-sm-4">
+                <input type="date" class="form-control center" id="birthDate" name="birthDate"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="salary" class="col-sm-4 control-label hidden-xs">Salary</label>
+
+            <div class="col-sm-4">
+                <input type="number" class="form-control center" id="salary" name="salary" step="500"
+                       onchange="return colorChange('salary')" onblur="colorChange('salary')"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-4">
+                <button type="reset" class="btn btn-default" id="reset">Reset</button>
+                <a href="index.html" class="btn btn-default" id="submit" onclick="return doValidate()"
+                        >Send</a>
+            </div>
+
+        </div>
+    </form>
+    <div class="row ">
+        <div class="block footer">
+            <footer>
+                <div class="col-sm-5">
+                    <p>Daniel García Mercadal 2015</p>
+                </div>
+                <div>
+                    <a href="http://www.facebook.com" class="btn ">
+                        <img src="img/facebook.svg" alt="facebook logo"/>
+                    </a>
+                    <a href="" class="btn">
+                        <img src="img/twitter.svg" alt="twitter logo"/>
+                    </a>
+                    <a href="" class="btn">
+                        <img src="img/linkedin.svg" alt="linkedin logo"/>
+                    </a>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+
+
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+
+</body>
+</html>
